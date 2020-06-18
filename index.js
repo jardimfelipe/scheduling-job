@@ -16,21 +16,32 @@ const filterUnscheduledJobs = (jobsToFilter) => {
   );
 };
 
+// Verify if this jobs are in execution date
 const isInExecDate = (jobs) => {
   const parsedInitExecDate = Date.parse(EXECUTION_WINDOW[0]);
   const parsedEndExecDate = Date.parse(EXECUTION_WINDOW[1]);
-  const minJobsDate = jobs.sort(
+  const sortedByDate = jobs.sort(
     (a, b) => a["Data Máxima de conclusão"] > b["Data Máxima de conclusão"]
   );
-  console.log(minJobsDate);
+  const parsedMinJobsDate = Date.parse(
+    sortedByDate[0]["Data Máxima de conclusão"]
+  );
+  const parsedMmaxJobsDate = Date.parse(
+    sortedByDate[sortedByDate.length - 1]["Data Máxima de conclusão"]
+  );
+  return (
+    parsedInitExecDate < parsedMinJobsDate &&
+    parsedEndExecDate < parsedMmaxJobsDate
+  );
 };
 
 // grouping jobs
 const groupedJobs = unscheduledJobs.reduce((scheduledJobs, newJob) => {
   const addToScheduledJobs = (newGroup) => {
     if (!isInExecDate(newGroup)) return;
-    scheduledJobs = [...scheduledJobs, [...new Set(newGroup)]];
-    filterUnscheduledJobs(newGroup);
+    const groupIds = newGroup.map(({ ID }) => ID);
+    scheduledJobs = [...scheduledJobs, [...new Set(groupIds)]];
+    filterUnscheduledJobs(groupIds);
   };
   // if a job already has 8 hours of estimate time, group it
   if (newJob["Tempo estimado"] === MAX_HOURS) {
