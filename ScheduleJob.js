@@ -1,9 +1,15 @@
+const CLASS_VALUES = {
+  0: "id",
+  1: "description",
+  2: "maxConclusionDate",
+  3: "estimateTime",
+};
+
 class ScheduleJob {
   constructor(job) {
-    this.id = job[0];
-    this.description = job[1];
-    this.maxConclusionDate = new Date(job[2]);
-    this.estimateTime = parseInt(job[3]);
+    job.forEach((value, index) => {
+      this[CLASS_VALUES[index]] = value;
+    });
   }
 }
 
