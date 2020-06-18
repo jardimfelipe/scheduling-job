@@ -4,7 +4,7 @@
 	"description": "Scheduling Job Test",
 	"main": "index.js",
 	"scripts": {
-		"test": "npm test",
+		"test": "jest",
 		"start": "node app"
 	},
 	"repository": {
@@ -17,7 +17,11 @@
 		"url": "https://github.com/jardimfelipe/scheduling-job/issues"
 	},
 	"homepage": "https://github.com/jardimfelipe/scheduling-job#readme",
-	"dependencies": {
+	"dependencies": {},
+	"devDependencies": {
+		"@stryker-mutator/core": "^3.3.0",
+		"@stryker-mutator/javascript-mutator": "^3.3.0",
+		"@stryker-mutator/jest-runner": "^3.3.0",
 		"jest": "^26.0.1"
 	}
 }

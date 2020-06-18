@@ -3,14 +3,27 @@ const EXECUTION_WINDOW = [
   new Date("2019-11-10 09:00:00"),
   new Date("2019-11-10 09:00:00"),
 ];
+const CLASS_VALUES = {
+  0: "id",
+  1: "description",
+  2: "maxConclusionDate",
+  3: "estimateTime",
+};
 
 const inputs = require("./inputs.json");
 const ScheduleJob = require("./ScheduleJob");
 
+// create a object with inputs then create an instance of ScheduleJob
 const jobs = inputs.map((job) => {
   const values = Object.values(job).map((values) => values);
-  return new ScheduleJob(values);
+  const serielizedJob = values.reduce((curr, acc, index) => {
+    const key = CLASS_VALUES[index];
+    curr[key] = acc;
+    return curr;
+  }, {});
+  return new ScheduleJob(serielizedJob);
 });
+
 // sort jobs based on estimate time
 let unscheduledJobs = jobs.sort((a, b) => a.estimateTime < b.estimateTime);
 
