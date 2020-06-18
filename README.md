@@ -6,7 +6,7 @@ A quick introduction of the minimal setup you need to get it running
 Clone this repo:
 
 ```shell
-git clone https://github.com/jardimfelipe/teste-mgb.git
+git clone https://github.com/jardimfelipe/scheduling-job.git
 ```
 
 Install packages
