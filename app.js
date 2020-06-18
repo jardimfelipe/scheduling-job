@@ -84,3 +84,5 @@ const groupedJobs = unscheduledJobs.reduce((scheduledJobs, newJob) => {
 }, []);
 
 console.log(groupedJobs);
+
+module.exports = { isInExecDate };

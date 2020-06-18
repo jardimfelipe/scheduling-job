@@ -14,13 +14,4 @@ describe("./ScheduleJob parameters validation", () => {
     expect(mockInstance.maxConclusionDate).toBe("2019-11-10 12:00:00");
     expect(mockInstance.estimateTime).toBe("2 horas");
   });
-  //   it("Throws error when missing params", () => {
-  //     const mockJob = {
-  //       description: "Importação de arquivos de fundos",
-  //       maxConclusionDate: "2019-11-10 12:00:00",
-  //       estimateTime: "2 horas",
-  //     };
-  //     console.log(new ScheduleJob(mockJob));
-  //     expect(new ScheduleJob(mockJob)).toThrow(Error);
-  //   });
 });
