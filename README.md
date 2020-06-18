@@ -1,5 +1,4 @@
 # Scheduling Job Admission Test
-Scheduling Job Admission Test
 
 ## Installing / Getting started
 A quick introduction of the minimal setup you need to get it running
