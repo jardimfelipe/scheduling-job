@@ -1,9 +1,4 @@
-const {
-  MAX_HOURS,
-  EXECUTION_WINDOW,
-  CLASS_VALUES,
-} = require("../config/config.js");
-const inputs = require("../data/inputs.json");
+const { EXECUTION_WINDOW, CLASS_VALUES } = require("../config/config.js");
 const ScheduleJob = require("../class/ScheduleJob");
 
 module.exports = {
