@@ -1,4 +1,4 @@
-const ScheduleJob = require("./ScheduleJob.js");
+const ScheduleJob = require("../../class/ScheduleJob.js");
 
 describe("./ScheduleJob parameters validation", () => {
   it("creates a instance with all parameters", () => {
