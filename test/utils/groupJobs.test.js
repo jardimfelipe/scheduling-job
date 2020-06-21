@@ -1,4 +1,18 @@
 const { groupJobs } = require("../../utils/groupJobs.js");
+jest.mock("../../config/config", () => {
+    return {
+        EXECUTION_WINDOW: {
+            initialDate: new Date("2019-11-10 09:00:00"),
+            finalDate: new Date("2019-11-11 12:00:00"),
+        },
+        CLASS_VALUES: {
+            0: "id",
+            1: "description",
+            2: "maxConclusionDate",
+            3: "estimateTime",
+        },
+    };
+});
 describe("@/utils/groupJobs tests", () => {
     it("groubJobs() should return jobs grouped", () => {
         const jobs = [

@@ -1,10 +1,11 @@
 const { MAX_HOURS, EXECUTION_WINDOW } = require("../config/config.js");
 const { isInExecDate, serializeJobs } = require("./jobs");
-const { checkDatesValidity } = require("./date.js");
+const { isValidExecutionWindow } = require("./date.js");
 
 module.exports = {
     groupJobs(inputs) {
-        if (!checkDatesValidity(EXECUTION_WINDOW)) return;
+        if (!isValidExecutionWindow(EXECUTION_WINDOW))
+            return console.error("Invalid dates");
         const filterUnscheduledJobs = (jobsToFilter) => {
             unscheduledJobs = unscheduledJobs.filter(
                 ({ id }) => !jobsToFilter.includes(id)

@@ -1,5 +1,7 @@
 const ScheduleJob = require("../../class/ScheduleJob.js");
-
+global.console = {
+    error: jest.fn(),
+};
 describe("./ScheduleJob parameters validation", () => {
     it("should create a instance with all parameters", () => {
         const mockJob = {
@@ -22,6 +24,7 @@ describe("./ScheduleJob parameters validation", () => {
             maxConclusionDate: "2019-11-10 12:00:00",
             estimateTime: "2 horas",
         };
-        expect(() => new ScheduleJob(mockJob)).toThrow(Error);
+        new ScheduleJob(mockJob);
+        expect(global.console.error).toHaveBeenCalledWith("id is undefined");
     });
 });

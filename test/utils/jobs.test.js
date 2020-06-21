@@ -1,5 +1,19 @@
 const { isInExecDate, serializeJobs } = require("../../utils/jobs.js");
-
+const EXECUTION_WINDOW = require("../../config/config.js");
+jest.mock("../../config/config", () => {
+    return {
+        EXECUTION_WINDOW: {
+            initialDate: new Date("2019-11-10 09:00:00"),
+            finalDate: new Date("2019-11-11 12:00:00"),
+        },
+        CLASS_VALUES: {
+            0: "id",
+            1: "description",
+            2: "maxConclusionDate",
+            3: "estimateTime",
+        },
+    };
+});
 describe("@/utils functions tests", () => {
     it("isInExecDate() should return true when all dates are in the execution window", () => {
         const job = {
