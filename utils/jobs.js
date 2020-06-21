@@ -14,23 +14,14 @@ module.exports = {
         });
         return newJobs.sort((a, b) => a.estimateTime < b.estimateTime);
     },
-    isInExecDate(jobs) {
-        const unscheduledJobs = [...jobs];
-        const sortedExecutionWindow = EXECUTION_WINDOW.sort(
-            (a, b) => Date.parse(a) > Date.parse(b)
-        );
-        const parsedInitExecDate = Date.parse(sortedExecutionWindow[0]);
-        const parsedEndExecDate = Date.parse(sortedExecutionWindow[1]);
-        const sortedByDate = unscheduledJobs.sort(
-            (a, b) => a.maxConclusionDate > b.maxConclusionDate
-        );
-        const parsedMinJobsDate = Date.parse(sortedByDate[0].maxConclusionDate);
-        const parsedMmaxJobsDate = Date.parse(
-            sortedByDate[sortedByDate.length - 1].maxConclusionDate
-        );
+    isInExecDate(job) {
+        const { initialDate, finalDate } = EXECUTION_WINDOW;
+        const parsedInitExecDate = Date.parse(initialDate);
+        const parsedEndExecDate = Date.parse(finalDate);
+        const parsedJobDate = Date.parse(job.maxConclusionDate);
         return (
-            parsedInitExecDate <= parsedMinJobsDate &&
-            parsedEndExecDate >= parsedMmaxJobsDate
+            parsedInitExecDate <= parsedJobDate &&
+            parsedEndExecDate >= parsedJobDate
         );
     },
 };

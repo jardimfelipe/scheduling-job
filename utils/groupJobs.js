@@ -1,16 +1,18 @@
-const { MAX_HOURS } = require("../config/config.js");
+const { MAX_HOURS, EXECUTION_WINDOW } = require("../config/config.js");
 const { isInExecDate, serializeJobs } = require("./jobs");
+const { checkDatesValidity } = require("./date.js");
 
 module.exports = {
     groupJobs(inputs) {
+        if (!checkDatesValidity(EXECUTION_WINDOW)) return;
         const filterUnscheduledJobs = (jobsToFilter) => {
             unscheduledJobs = unscheduledJobs.filter(
                 ({ id }) => !jobsToFilter.includes(id)
             );
         };
-        let unscheduledJobs = serializeJobs(inputs);
-        if (!isInExecDate(unscheduledJobs))
-            throw new Error("Jobs are out of execution window");
+        let unscheduledJobs = serializeJobs(inputs).filter((job) =>
+            isInExecDate(job)
+        );
         const groupedJobs = unscheduledJobs.reduce((scheduledJobs, newJob) => {
             const addToScheduledJobs = (newGroup) => {
                 const groupIds = newGroup.map(({ id }) => id);
