@@ -1,16 +1,18 @@
 class ScheduleJob {
-    constructor({ id, description, maxConclusionDate, estimateTime }) {
+    constructor({
+        id, description, maxConclusionDate, estimateTime,
+    },) {
         if (id === undefined) {
-            console.error("id is undefined");
+            console.error("id is undefined",);
         }
         if (description === undefined) {
-            console.error("description is undefined");
+            console.error("description is undefined",);
         }
         if (maxConclusionDate === undefined) {
-            console.error("maxConclusionDate is undefined");
+            console.error("maxConclusionDate is undefined",);
         }
         if (estimateTime === undefined) {
-            console.error("estimateTime is undefined");
+            console.error("estimateTime is undefined",);
         }
         this.id = id;
         this.description = description;

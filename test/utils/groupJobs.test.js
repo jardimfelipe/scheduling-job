@@ -1,9 +1,9 @@
-const { groupJobs } = require("../../utils/groupJobs.js");
+const { groupJobs, } = require("../../utils/groupJobs.js",);
 jest.mock("../../config/constants", () => {
     return {
         EXECUTION_WINDOW: {
-            initialDate: new Date("2019-11-10 09:00:00"),
-            finalDate: new Date("2019-11-11 12:00:00"),
+            initialDate: new Date("2019-11-10 09:00:00",),
+            finalDate: new Date("2019-11-11 12:00:00",),
         },
         CLASS_VALUES: {
             0: "id",
@@ -12,7 +12,7 @@ jest.mock("../../config/constants", () => {
             3: "estimateTime",
         },
     };
-});
+},);
 describe("@/utils/groupJobs tests", () => {
     it("groubJobs() should return jobs grouped", () => {
         const jobs = [
@@ -35,7 +35,7 @@ describe("@/utils/groupJobs tests", () => {
                 "Tempo estimado": "6 horas",
             },
         ];
-        const expectedResult = [[1, 3], [2]];
-        expect(groupJobs(jobs)).toStrictEqual(expectedResult);
-    });
-});
+        const expectedResult = [[1, 3, ], [2, ], ];
+        expect(groupJobs(jobs,),).toStrictEqual(expectedResult,);
+    },);
+},);

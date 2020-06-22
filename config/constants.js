@@ -1,7 +1,7 @@
 const MAX_HOURS = 8;
 const EXECUTION_WINDOW = {
-    initialDate: new Date("2019-11-10 09:00:00"),
-    finalDate: new Date("2019-11-11 12:00:00"),
+    initialDate: new Date("2019-11-10 09:00:00",),
+    finalDate: new Date("2019-11-11 12:00:00",),
 };
 const CLASS_VALUES = {
     0: "id",
@@ -10,4 +10,4 @@ const CLASS_VALUES = {
     3: "estimateTime",
 };
 
-module.exports = { MAX_HOURS, EXECUTION_WINDOW, CLASS_VALUES };
+module.exports = { MAX_HOURS, EXECUTION_WINDOW, CLASS_VALUES, };

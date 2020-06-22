@@ -1,10 +1,9 @@
 module.exports = {
-    isValidExecutionWindow(dates) {
-        const { initialDate, finalDate } = dates;
-        const isDateValid = !isNaN(initialDate) && !isNaN(finalDate);
-        const initialDateIsSmallerFinalDate =
-            Date.parse(initialDate) < Date.parse(finalDate);
+  isValidExecutionWindow(dates,) {
+    const { initialDate, finalDate, } = dates;
+    const isDateValid = !Number.isNaN(initialDate,) && !Number.isNaN(finalDate,);
+    const initialDateIsSmallerFinalDate = Date.parse(initialDate,) < Date.parse(finalDate,);
 
-        return isDateValid ? initialDateIsSmallerFinalDate : false;
-    },
+    return isDateValid ? initialDateIsSmallerFinalDate : false;
+  },
 };
