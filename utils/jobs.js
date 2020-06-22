@@ -1,4 +1,4 @@
-const { EXECUTION_WINDOW, CLASS_VALUES } = require("../config/config.js");
+const { EXECUTION_WINDOW, CLASS_VALUES } = require("../config/constants.js");
 const ScheduleJob = require("../class/ScheduleJob");
 
 module.exports = {

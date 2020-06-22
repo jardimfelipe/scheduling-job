@@ -1,4 +1,4 @@
-const { MAX_HOURS, EXECUTION_WINDOW } = require("../config/config.js");
+const { MAX_HOURS, EXECUTION_WINDOW } = require("../config/constants.js");
 const { isInExecDate, serializeJobs } = require("./jobs");
 const { isValidExecutionWindow } = require("./date.js");
 

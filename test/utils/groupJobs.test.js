@@ -1,5 +1,5 @@
 const { groupJobs } = require("../../utils/groupJobs.js");
-jest.mock("../../config/config", () => {
+jest.mock("../../config/constants", () => {
     return {
         EXECUTION_WINDOW: {
             initialDate: new Date("2019-11-10 09:00:00"),

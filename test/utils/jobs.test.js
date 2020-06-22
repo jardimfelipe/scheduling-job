@@ -1,6 +1,6 @@
 const { isInExecDate, serializeJobs } = require("../../utils/jobs.js");
-const EXECUTION_WINDOW = require("../../config/config.js");
-jest.mock("../../config/config", () => {
+const EXECUTION_WINDOW = require("../../config/constants.js");
+jest.mock("../../config/constants", () => {
     return {
         EXECUTION_WINDOW: {
             initialDate: new Date("2019-11-10 09:00:00"),
