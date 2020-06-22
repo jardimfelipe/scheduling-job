@@ -1,28 +1,31 @@
 {
-	"name": "scheduling-job",
-	"version": "1.0.0",
-	"description": "Scheduling Job Test",
-	"main": "index.js",
-	"scripts": {
-		"test": "jest",
-		"start": "npm run test && node app"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/jardimfelipe/scheduling-job.git"
-	},
-	"author": "Felipe Jardim",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/jardimfelipe/scheduling-job/issues"
-	},
-	"homepage": "https://github.com/jardimfelipe/scheduling-job#readme",
-	"dependencies": {},
-	"devDependencies": {
-		"@stryker-mutator/core": "^3.3.0",
-		"@stryker-mutator/javascript-mutator": "^3.3.0",
-		"@stryker-mutator/jest-runner": "^3.3.0",
-		"eslint": "^7.3.0",
-		"jest": "^26.0.1"
-	}
+    "name": "scheduling-job",
+    "version": "1.0.0",
+    "description": "Scheduling Job Test",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "start": "node app",
+        "lint": "eslint ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jardimfelipe/scheduling-job.git"
+    },
+    "author": "Felipe Jardim",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jardimfelipe/scheduling-job/issues"
+    },
+    "homepage": "https://github.com/jardimfelipe/scheduling-job#readme",
+    "dependencies": {
+        "eslint-config-airbnb": "^18.2.0"
+    },
+    "devDependencies": {
+        "@stryker-mutator/core": "^3.3.0",
+        "@stryker-mutator/javascript-mutator": "^3.3.0",
+        "@stryker-mutator/jest-runner": "^3.3.0",
+        "eslint": "^7.3.0",
+        "jest": "^26.0.1"
+    }
 }
