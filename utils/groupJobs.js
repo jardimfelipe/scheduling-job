@@ -1,10 +1,10 @@
-const { MAX_HOURS, EXECUTION_WINDOW, } = require("../config/constants.js",);
-const { isInExecDate, serializeJobs, } = require("./jobs",);
-const { isValidExecutionWindow, } = require("./date.js",);
+const { MAX_HOURS, EXECUTION_WINDOW, } = require('../config/constants.js',);
+const { isInExecDate, serializeJobs, } = require('./jobs',);
+const { isValidExecutionWindow, } = require('./date.js',);
 
 module.exports = {
   groupJobs(inputs,) {
-    if (!isValidExecutionWindow(EXECUTION_WINDOW,)) return console.error("Invalid dates",);
+    if (!isValidExecutionWindow(EXECUTION_WINDOW,)) return console.error('Invalid dates',);
     let unscheduledJobs = serializeJobs(inputs,).filter((job,) => isInExecDate(job,),);
     const filterUnscheduledJobs = (jobsToFilter,) => {
       unscheduledJobs = unscheduledJobs.filter(({ id, },) => !jobsToFilter.includes(id,),);
